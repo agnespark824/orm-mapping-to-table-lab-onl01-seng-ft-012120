@@ -3,17 +3,17 @@ class Student
   attr_reader :id
 
   def initialize(name, grade, id = nil)
+    @id = id
     @name = name
     @grade = grade
-    @id = id
   end
   
   def self.create_table
     sql = <<-SQL #leading tabs are ignored
     CREATE TABLE IF NOT EXISTS students (name, grade, id)
+      id INTEGER PRIMARY KEY,
       name TEXT,
-      grade TEXT,
-      id INTEGER PRIMARY KEY
+      grade TEXT
       )
       SQL
    
@@ -35,6 +35,8 @@ class Student
     SQL
     
     DB[:conn].execute(sql, self.name, self.grade)
+    
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
   end
   
   def self.create(name, grade)
