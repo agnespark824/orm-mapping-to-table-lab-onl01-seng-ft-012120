@@ -8,9 +8,20 @@ class Student
     @id = id
   end
   
-  def create_table
+  def self.create_table
     sql = <<-SQL #leading tabs are ignored
     CREATE TABLE IF NOT EXISTS students (name, grade, id)
+      name TEXT,
+      grade TEXT,
+      id INTEGER PRIMARY KEY
+      )
+      SQL
+    DB[:conn].execute(sql)
+  end
+  
+    def self.drop_table
+    sql = <<-SQL #leading tabs are ignored
+    DROP TABLE IF NOT EXISTS students (name, grade, id)
       name TEXT,
       grade TEXT,
       id INTEGER PRIMARY KEY
