@@ -10,7 +10,7 @@ class Student
   
   def self.create_table
     sql = <<-SQL #leading tabs are ignored
-    CREATE TABLE IF NOT EXISTS students (name, grade, id)
+    CREATE TABLE IF NOT EXISTS students (id, name, grade)
       id INTEGER PRIMARY KEY,
       name TEXT,
       grade TEXT
