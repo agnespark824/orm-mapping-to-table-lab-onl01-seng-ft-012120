@@ -21,7 +21,7 @@ class Student
   
     def self.drop_table
     sql = <<-SQL #leading tabs are ignored
-    DROP TABLE IF NOT EXISTS students (name, grade, id)
+    DROP TABLE students (name, grade, id)
       name TEXT,
       grade TEXT,
       id INTEGER PRIMARY KEY
