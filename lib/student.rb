@@ -14,18 +14,14 @@ class Student
       name TEXT,
       grade TEXT,
       id INTEGER PRIMARY KEY
-      )
+      );
       SQL
     DB[:conn].execute(sql)
   end
   
     def self.drop_table
     sql = <<-SQL #leading tabs are ignored
-    DROP TABLE students (name, grade, id)
-      name TEXT,
-      grade TEXT,
-      id INTEGER PRIMARY KEY
-      )
+    DROP TABLE students;
       SQL
     DB[:conn].execute(sql)
   end
