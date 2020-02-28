@@ -9,7 +9,7 @@ class Student
   end
   
   def create_table
-    sql = <<-SQL
+    sql = <<-SQL #leading tabs are ignored
     CREATE TABLE IF NOT EXISTS students (name, grade, id)
       name TEXT,
       grade TEXT,
